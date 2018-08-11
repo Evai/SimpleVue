@@ -1,0 +1,40 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+  <title>DEMO</title>
+  <script src="js/utils.js"></script>
+  <script src="js/simpleVue.js"></script>
+</head>
+<body>
+<div id="app">
+  <div v-text="name"></div>
+  <div v-html="html"></div>
+  <div>{{age}}</div>
+  <input v-model="name" />
+  <button @click="changeName('hi!')">改变名字</button>
+  <button @click="changeAge">改变年龄</button>
+</div>
+
+<script>
+	var vm = new SimpleVue({
+		el: '#app',
+		data: {
+			name: 'hello world!',
+			age: 18,
+			html: '<h1>html</h1>',
+		},
+		methods: {
+			changeName: function(name) {
+				this.name = name;
+			},
+			changeAge: function() {
+				this.age++;
+			}
+		}
+  });
+
+</script>
+</body>
+</html>
+
